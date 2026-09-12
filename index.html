@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jupyter Notebook — generated with runcell</title>
+    <meta name="description" content="Exported with runcell — convert .ipynb notebooks to HTML or PDF anytime at runcell.dev." />
+    <meta name="generator" content="runcell" />
+    <style>
+        :root {
+            --jp-code-font-family: 'SFMono-Regular', Menlo, Consolas, 'Liberation Mono', monospace;
+            --jp-content-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            --jp-cell-prompt-width: 64px;
+            --jp-input-prompt-color: #307fc1;
+            --jp-output-prompt-color: #bf5b3d;
+            --jp-cell-input-bg: #f7f7f7;
+            --jp-layout-color0: #ffffff;
+            --jp-layout-color1: #f7f7f7;
+            --jp-border-color1: #e0e0e0;
+            --jp-content-font-color0: #000000;
+            --jp-content-font-color1: #333333;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--jp-content-font-family);
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--jp-content-font-color0);
+            background-color: var(--jp-layout-color0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .notebook-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Cell structure */
+        .cell {
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .cell-prompt {
+            min-width: var(--jp-cell-prompt-width);
+            width: var(--jp-cell-prompt-width);
+            font-family: var(--jp-code-font-family);
+            font-size: 12px;
+            padding: 10px 8px 10px 0;
+            text-align: right;
+            flex-shrink: 0;
+            user-select: none;
+        }
+
+        .cell-content {
+            flex: 1;
+            min-width: 0;
+            overflow: hidden;
+        }
+
+        /* Input prompt styling - Jupyter blue */
+        .input-prompt {
+            color: var(--jp-input-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Output prompt styling - Jupyter red/orange */
+        .output-prompt {
+            color: var(--jp-output-prompt-color);
+            font-weight: bold;
+        }
+
+        /* Code cell input area */
+        .input-area {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            overflow-x: auto;
+        }
+
+        .input-area pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Output area */
+        .output-area {
+            margin-top: 0;
+        }
+
+        .output-wrapper {
+            display: flex;
+            flex-direction: row;
+            margin-top: 4px;
+        }
+
+        .output-content {
+            flex: 1;
+            min-width: 0;
+            padding: 8px 0;
+        }
+
+        .output-content pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        /* Stream output (stdout/stderr) */
+        .output-stream {
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .output-stderr {
+            background-color: #fdd;
+            padding: 8px 12px;
+            border-radius: 2px;
+        }
+
+        /* Execute result / display data */
+        .output-result {
+            padding: 4px 0;
+        }
+
+        .output-result pre {
+            margin: 0;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+        }
+
+        /* Image output */
+        .output-image {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* HTML output (DataFrames, etc.) */
+        .output-html {
+            overflow-x: auto;
+        }
+
+        .output-html table {
+            border-collapse: collapse;
+            font-size: 13px;
+            font-family: var(--jp-content-font-family);
+        }
+
+        .output-html table th,
+        .output-html table td {
+            border: 1px solid #ddd;
+            padding: 6px 10px;
+            text-align: left;
+        }
+
+        .output-html table th {
+            background-color: #f5f5f5;
+            font-weight: 600;
+        }
+
+        .output-html table tr:nth-child(even) {
+            background-color: #fafafa;
+        }
+
+        /* Error output */
+        .output-error {
+            background-color: #fff0f0;
+            padding: 8px 12px;
+            border-radius: 2px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Markdown cell styling */
+        .markdown-cell {
+            padding: 10px 0;
+        }
+
+        .markdown-cell h1 {
+            font-size: 2em;
+            font-weight: 600;
+            margin: 0.67em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin: 0.83em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--jp-border-color1);
+        }
+
+        .markdown-cell h3 {
+            font-size: 1.25em;
+            font-weight: 600;
+            margin: 1em 0;
+        }
+
+        .markdown-cell h4 {
+            font-size: 1em;
+            font-weight: 600;
+            margin: 1.33em 0;
+        }
+
+        .markdown-cell h5 {
+            font-size: 0.875em;
+            font-weight: 600;
+            margin: 1.67em 0;
+        }
+
+        .markdown-cell h6 {
+            font-size: 0.85em;
+            font-weight: 600;
+            margin: 2.33em 0;
+            color: #6a737d;
+        }
+
+        .markdown-cell p {
+            margin: 0 0 16px 0;
+            line-height: 1.6;
+        }
+
+        .markdown-cell code {
+            font-family: var(--jp-code-font-family);
+            font-size: 85%;
+            background-color: rgba(27, 31, 35, 0.05);
+            padding: 0.2em 0.4em;
+            border-radius: 3px;
+        }
+
+        .markdown-cell pre {
+            background-color: var(--jp-cell-input-bg);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 3px;
+            padding: 16px;
+            overflow-x: auto;
+            font-size: 85%;
+            line-height: 1.45;
+        }
+
+        .markdown-cell pre code {
+            background-color: transparent;
+            padding: 0;
+            border-radius: 0;
+            font-size: 100%;
+        }
+
+        .markdown-cell blockquote {
+            margin: 0 0 16px 0;
+            padding: 0 1em;
+            color: #6a737d;
+            border-left: 4px solid #dfe2e5;
+        }
+
+        .markdown-cell ul,
+        .markdown-cell ol {
+            margin: 0 0 16px 0;
+            padding-left: 2em;
+        }
+
+        .markdown-cell li {
+            margin: 0.25em 0;
+        }
+
+        .markdown-cell a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .markdown-cell a:hover {
+            text-decoration: underline;
+        }
+
+        .markdown-cell hr {
+            border: 0;
+            border-top: 1px solid var(--jp-border-color1);
+            margin: 24px 0;
+        }
+
+        .markdown-cell img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .markdown-cell table {
+            border-collapse: collapse;
+            margin: 0 0 16px 0;
+        }
+
+        .markdown-cell table th,
+        .markdown-cell table td {
+            border: 1px solid #dfe2e5;
+            padding: 6px 13px;
+        }
+
+        .markdown-cell table th {
+            font-weight: 600;
+            background-color: #f6f8fa;
+        }
+
+        .markdown-cell table tr:nth-child(2n) {
+            background-color: #f6f8fa;
+        }
+
+        /* Raw cell styling */
+        .raw-cell {
+            background-color: var(--jp-layout-color1);
+            border: 1px solid var(--jp-border-color1);
+            border-radius: 2px;
+            padding: 8px 12px;
+            font-family: var(--jp-code-font-family);
+            font-size: 13px;
+            white-space: pre-wrap;
+        }
+
+        /* Empty prompt placeholder */
+        .prompt-empty {
+            color: transparent;
+        }
+
+        .export-footer {
+            margin-top: 32px;
+            padding-top: 16px;
+            border-top: 1px solid var(--jp-border-color1);
+            color: #555;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .export-footer a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+
+        .export-footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="notebook-container">
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h1>Capstone — mirrors your deployed research paper</h1><br><br>[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/murtaza-x/flyrank-repo/blob/main/work/notebooks/capstone.ipynb?flush_cache=true)<br><br>This skeleton is yours to fill. Work the sections <strong>in order</strong> — each one has a one-line hint. Simple words, honest numbers.<br><br>> Working with an AI assistant? Tell it to read <code>skills/README.md</code> first and load the one skill this assignment names on its card.</div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>1. Question</h2><br>Title: Predictive Content Opportunity Scoring: A Machine Learning Approach to SEO Refresh Prioritization<br><br>Abstract:<br>Content and SEO teams often struggle to identify which decaying pages offer the best return on investment for a manual refresh. To solve this, this study utilizes search performance data to build a predictive opportunity scoring engine. A Random Forest model was trained to score content potential, utilizing a strict GroupShuffleSplit methodology to prevent data leakage. Finally, the model's outputs are translated into a ranked action playbook, mapping scores to specific human-in-the-loop recommendations.<br><br>The Research Question:<br>How can we identify and rank decaying web pages that offer the highest return on investment for manual content refreshes?<br><br>The Decision it Supports:<br>This research supports content strategists and SEO teams in prioritizing their update queues. Instead of relying on subjective guesswork, teams can use this data-driven scoring engine to allocate resources efficiently towards pages that have the highest potential for recovery.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>2. Data</h2><br>Dataset Details & Public Safety:<br>This analysis utilizes the FlyRank ML Internship dataset hosted on Hugging Face.<br><br>Table Used: fact_content_daily_performance<br><br>Date Window: February 2026 (month=2026-02)<br><br>Exclusions: Records with zero impressions (gsc_impressions <= 0) or missing position data (gsc_avg_position IS NOT NULL) were excluded to ensure the model only evaluates pages with an active search presence.<br><br>Privacy & Public Safety: All sensitive client information, including brand names, domains, and specific URLs, has been strictly anonymized using cryptographic hashes (client_hash_id, content_hash_id). No private queries or raw exports are exposed in this analysis.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>3. Methodology</h2><br>Assumptions & Definitions:<br><br>Features: The model utilizes gsc_impressions and gsc_avg_position as the primary indicators of a page's current visibility and potential.<br><br>Target Label: gsc_clicks is used as the target variable to represent the realized value (opportunity score proxy).<br><br>Model: A RandomForestRegressor was selected to capture non-linear relationships between position, impressions, and expected clicks.<br><br>Validation Design & Leakage Checks:<br>Initially, a standard random train/test split was used as a baseline. However, this approach is fundamentally flawed for multi-client data, as pages from the same client can leak into both the training and testing sets, leading to over-optimistic results. To ensure an honest evaluation, a strict GroupShuffleSplit was implemented, grouped by client_hash_id. This guarantees that the model is tested on entirely unseen clients.<br><br>Furthermore, a leakage audit was conducted between impressions and clicks. While there is a strong synchronous correlation (impressions limit the maximum possible clicks), this overlap is acceptable because the model functions as a directional ranking tool for existing pages, not a strict forecaster of future traffic.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>4. Results (vs baseline)</h2><br>Model vs. Baseline Evaluation:The comparison below demonstrates the critical difference between over-optimistic random splitting and honest grouped splitting.Split DesignEvaluationMeasured RMSE (Lower is better)Random SplitOver-optimistic (Baseline)Artificially LowGrouped by ClientHonest (Real-world)Higher, but realisticNote: The Random Split allows client-specific data to leak across the train/test boundary, causing the model to memorize client behaviors. The Grouped Split evaluates the model on completely unseen clients, providing a true measure of its ability to generalize across new websites.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>5. Limitations</h2><br><br>Honest Claims & Boundaries:<br><br>Correlation vs. Causation: This model identifies correlations between visibility metrics and click opportunities. A high opportunity score suggests potential, but it does not guarantee that a manual refresh will causally result in increased traffic.<br><br>Semantic Blindness: The model analyzes quantitative metrics (impressions, positions), not qualitative content. It cannot determine if a page is struggling due to poor writing quality, outdated facts, or external factors like a lack of backlinks.<br><br>Algorithm Volatility: The system is built on historical trailing data (February 2026). It cannot predict or account for sudden search engine algorithm updates or real-time viral trends.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>6. Ranked recommendations</h2><br><br>The Action Playbook:<br>Based on the opportunity score and traffic decay signals, the model categorizes URLs into the following prioritized actions:<br><br>Full Rewrite: (High Opportunity + Active Decay) Content needs a complete structural and semantic overhaul.<br><br>Expand Content: (High Opportunity + Stable Traffic) Content is performing reasonably well but lacks the depth to capture available clicks.<br><br>Refresh Links/Dates: (Medium Opportunity + Minor Decay) Quick SEO wins requiring minimal effort.<br><br>Monitor: (Low Opportunity) Low priority; not worth manual resource allocation at this time.<br><br>Human-in-the-Loop Rules:<br>This system is a prioritization engine, not a content generator. All "Rewrite" or "Expand" recommendations must be reviewed by a human content strategist. Automated, direct-to-site overwriting using LLMs is strictly prohibited.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>7. Artifacts the paper embeds</h2><br><br>Artifacts & Reproducibility:<br><br>Visualizations: The distribution of recommended actions and model performance metrics are saved in the work/figures/ directory.<br><br>Code Access: The complete methodology, code (Week 1 through 7), and data pipelines required to reproduce this study are available in my public GitHub repository.<br><br>Acknowledgments & Data Credit:<br>Built on the FlyRank ML Internship dataset. For more information, visit https://flyrank.ai.</div>
+            </div>
+        </div>
+        <div class="cell cell-code">
+            <div class="cell-prompt input-prompt">In [ ]:</div>
+            <div class="cell-content">
+                <div class="input-area"><pre></pre></div>
+            </div>
+        </div>
+        <div class="cell cell-markdown">
+            <div class="cell-prompt prompt-empty">&nbsp;</div>
+            <div class="cell-content">
+                <div class="markdown-cell"><h2>Self-check</h2><br><br>Before you submit, confirm each line honestly:<br><br>- [ ] Every section above is filled — markdown thinking AND the code that backs it<br>- [ ] The notebook runs top to bottom with no errors (Runtime → Run all)<br>- [ ] No client names, URLs, or private queries anywhere<br>- [ ] My claims use careful words: observed, measured, directional, decision-support<br>- [ ] Committed to my repo under <code>work/notebooks/</code> — then submit your repo URL on the card. Done.<br>- [ ] My deployed paper has <strong>all 9 sections</strong> — including the <strong>Abstract</strong> at the top and <strong>Acknowledgments & data credit</strong> (the https://flyrank.ai link) at the bottom.<br>- [ ] <strong>ML-12 done in this notebook's closing cells:</strong> 5-minute demo outline + a social-post cut + a 3-sentence employer-facing summary.<br></div>
+            </div>
+        </div>
+    </div>
+    <footer class="export-footer">
+        Exported with <a href="https://www.runcell.dev/tool/ipynb-to-html">runcell</a> — convert notebooks to HTML or PDF anytime at runcell.dev.
+    </footer>
+</body>
+</html>
